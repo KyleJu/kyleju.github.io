@@ -7,7 +7,7 @@
     <title>Today's Date</title>
     <script>
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", '/api/metadata?product=chrome', true);
+        xhr.open("POST", '/api/metadata', true);
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -17,7 +17,7 @@
                 document.write(5 + 2);
             }
         }
-        xhr.send("foo=bar&lorem=ipsum");
+        xhr.send("product=chrome");
 // xhr.send(new Int8Array());
 // xhr.send(document);
     </script>
