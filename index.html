@@ -7,7 +7,7 @@
     <title>Today's Date</title>
     <input type="text" id="myText" value="Some text...">
 
-    <p>Click the "Try it" button to get the text in the text field.</p>
+    <p>Input JSON body and click the "Try it" to send a PATCH request.</p>
 
     <button onclick="myFunction()">Try it</button>
     <script>
@@ -15,7 +15,7 @@
             var x = document.getElementById("myText").value;
 
             var xhr = new XMLHttpRequest();
-            xhr.open("PATCH", 'https://wpt.fyi/api/metadata/triage?product=chrome', true);
+            xhr.open("PATCH", 'https://test-from-github-io-dot-wptdashboard-staging.appspot.com/api/metadata/triage?product=chrome', true);
 
             //Send the proper header information along with the request
             xhr.setRequestHeader("Content-Type", "application/json");
