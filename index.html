@@ -5,21 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Today's Date</title>
+    <input type="text" id="myText" value="Some text...">
+
+    <p>Click the "Try it" button to get the text in the text field.</p>
+
+    <button onclick="myFunction()">Try it</button>
     <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open("PATCH", 'https://wpt.fyi/api/metadata/triage', true);
+        function myFunction() {
+            var x = document.getElementById("myText").value;
 
-        //Send the proper header information along with the request
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            var xhr = new XMLHttpRequest();
+            xhr.open("PATCH", 'https://wpt.fyi/api/metadata/triage?product=chrome', true);
 
-        xhr.onreadystatechange = function () { // Call a function when the state changes.
-            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                document.write(5 + 2);
+            //Send the proper header information along with the request
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () { // Call a function when the state changes.
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    document.getElementById("demo").innerHTML = xhr.response.message;
+                }
             }
+            var json = JSON.stringify(x);
+            xhr.send(json);
         }
-        xhr.send("product=chrome");
-// xhr.send(new Int8Array());
-// xhr.send(document);
     </script>
 </head>
 
