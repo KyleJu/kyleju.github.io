@@ -25,9 +25,8 @@
                     document.getElementById("demo").innerHTML = xhr.response.message;
                 }
             }
-            var json = JSON.stringify(x);
             xhr.withCredentials = true;
-            xhr.send(json);
+            xhr.send(x);
         }
     </script>
 </head>
