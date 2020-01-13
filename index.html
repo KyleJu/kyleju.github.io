@@ -26,6 +26,7 @@
                 }
             }
             var json = JSON.stringify(x);
+            xhr.withCredentials = true;
             xhr.send(json);
         }
     </script>
